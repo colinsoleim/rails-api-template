@@ -1,0 +1,179 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rspec
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'config/application.rb'
+    - 'db/**/*'
+    - 'app/views/**/*'
+    - 'node_modules/**/*'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+
+# Bundler Cops
+Bundler/OrderedGems:
+  Enabled: False
+
+# Style Cops
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/ConditionalAssignment:
+  EnforcedStyle: assign_inside_condition
+
+Style/Documentation:
+  Enabled: False
+
+Style/GuardClause:
+  Enabled: False
+
+Style/Next:
+  Enabled: False
+
+Style/FrozenStringLiteralComment:
+  Enabled: False
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/IfUnlessModifier:
+  Enabled: False
+
+Style/SymbolArray:
+  Enabled: False
+
+# Metrics Cops
+Metrics/BlockLength:
+  Enabled: False
+
+Metrics/MethodLength:
+  Max: 10
+
+# RSpec Cops
+RSpec/MultipleExpectations:
+  Max: 10
+  Exclude:
+    - 'spec/features/*'
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/ExampleLength:
+  Enabled: False
+
+RSpec/NamedSubject:
+  Enabled: False
+
+RSpec/DescribedClass:
+  Enabled: False
+
+RSpec/RepeatedDescription:
+  Enabled: False
+
+RSpec/MessageChain:
+  Enabled: False
+
+RSpec/InstanceVariable:
+  Enabled: False
+
+# Rails
+
+Rails/ActionFilter:
+  Description: 'Enforces consistent use of action filter methods.'
+  Enabled: false
+
+Rails/Date:
+  Description: >-
+                  Checks the correct usage of date aware methods,
+                  such as Date.today, Date.current etc.
+  Enabled: false
+
+Rails/FindBy:
+  Description: 'Prefer find_by over where.first.'
+  Enabled: false
+
+Rails/FindEach:
+  Description: 'Prefer all.find_each over all.find.'
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Description: 'Prefer has_many :through to has_and_belongs_to_many.'
+  Enabled: false
+
+Rails/Output:
+  Description: 'Checks for calls to puts, print, etc.'
+  Enabled: false
+
+Rails/ReadWriteAttribute:
+  Description: >-
+                 Checks for read_attribute(:attr) and
+                 write_attribute(:attr, val).
+  Enabled: false
+
+Rails/ScopeArgs:
+  Description: 'Checks the arguments of ActiveRecord scopes.'
+  Enabled: false
+
+Rails/TimeZone:
+  Description: 'Checks the correct usage of time zone aware methods.'
+  StyleGuide: 'https://github.com/bbatsov/rails-style-guide#time'
+  Reference: 'http://danilenko.org/2012/7/6/rails_timezones'
+  Enabled: false
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - performance
+    - staging
+
+Rails/Validation:
+  Description: 'Use validates :attribute, hash of validations.'
+  Enabled: false
+
+# New cops
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: false
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: False
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: False
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: False
+
+Lint/RaiseException:
+  Enabled: False
+
+Lint/StructNewOverride:
+  Enabled: False
+
+Style/ExponentialNotation:
+  Enabled: False
+
+Style/HashEachMethods:
+  Enabled: False
+
+Style/HashTransformKeys:
+  Enabled: False
+
+Style/HashTransformValues:
+  Enabled: False
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: False
+
+Style/RedundantRegexpEscape:
+  Enabled: False
+
+Style/SlicingWithRange:
+  Enabled: False
